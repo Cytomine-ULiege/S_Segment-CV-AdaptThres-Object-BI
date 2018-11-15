@@ -1,0 +1,213 @@
+{
+    "name": "Segment-CV-AdaptThres-Object-BI",
+    "description": "Detects objects in a big image using adaptive thresholding, tiling, and union",
+    "container-image": {
+	"image": "cytomineuliege/s_segment-cv-adaptthres-object-bi",
+	"type": "singularity"
+    },
+    "command-line": "[CYTOMINE_HOST] [CYTOMINE_PUBLIC_KEY] [CYTOMINE_PRIVATE_KEY] [CYTOMINE_ID_PROJECT] [CYTOMINE_ID_SOFTWARE] [CYTOMINE_ID_PREDICTED_TERM] [CYTOMINE_ZOOM_LEVEL] [CYTOMINE_FILTER] [CYTOMINE_TILE_SIZE] [CYTOMINE_MIN_AREA] [CYTOMINE_MAX_AREA] [CYTOMINE_UNION_MIN_LENGTH] [CYTOMINE_UNION_BUFFEROVERLAP] [CYTOMINE_UNION_AREA] [CYTOMINE_UNION_MIN_POINT_FOR_SIMPLIFY] [CYTOMINE_UNION_MIN_POINT] [CYTOMINE_UNION_MAX_POINT] [CYTOMINE_UNION_NB_ZONES_WIDTH] [CYTOMINE_UNION_NB_ZONES_HEIGHT]",
+    "inputs": [
+	{
+	    "id": "cytomine_host",
+	    "value-key": "[@ID]",
+	    "command-line-flag": "--@id",
+	    "name": "Cytomine host",
+	    "set-by-server": true,
+	    "optional": false,
+	    "type": "String"
+	},
+	{
+	    "id": "cytomine_public_key",
+	    "value-key": "[@ID]",
+	    "command-line-flag": "--@id",
+	    "name": "Cytomine public key",
+	    "set-by-server": true,
+	    "optional": false,
+	    "type": "String"
+	},
+	{
+	    "id": "cytomine_private_key",
+	    "value-key": "[@ID]",
+	    "command-line-flag": "--@id",
+	    "name": "Cytomine private key",
+	    "set-by-server": true,
+	    "optional": false,
+	    "type": "String"
+	},
+	{
+	    "id": "cytomine_id_project",
+	    "value-key": "[@ID]",
+	    "command-line-flag": "--@id",
+	    "name": "Cytomine project ID",
+	    "set-by-server": true,
+	    "optional": false,
+	    "type": "Number"
+	},
+	{
+	    "id": "cytomine_id_software",
+	    "value-key": "[@ID]",
+	    "command-line-flag": "--@id",
+	    "name": "Cytomine software ID",
+	    "set-by-server": true,
+	    "optional": false,
+	    "type": "Number"
+	},
+	{
+	    "id": "cytomine_id_predicted_term",
+	    "value-key": "[@ID]",
+	    "command-line-flag": "--@id",
+	    "name": "Term to predict",
+	    "description": "The term that will be associated to detected objects",
+	    "optional": true,
+	    "type": "Domain",
+	    "uri": "/api/ontology/$currentOntology$/term.json",
+	    "uri-print-attribute": "name",
+	    "uri-sort-attribute": "name"
+	},
+	{
+	    "id": "cytomine_zoom_level",
+	    "value-key": "[@ID]",
+	    "command-line-flag": "--@id",
+	    "name": "Cytomine zoom level",
+	    "description": "Cytomine zoom level at which to perform thresholding",
+	    "set-by-server": true,
+	    "optional": false,
+	    "default-value": "0",
+	    "type": "Number"
+	},
+	{
+	    "id": "cytomine_filter",
+	    "value-key": "[@ID]",
+	    "command-line-flag": "--@id",
+	    "name": "Cytomine thresholding filter",
+	    "description": "Filter (adaptive,otsu,binary) to detect foreground objects",
+	    "set-by-server": true,
+	    "optional": false,
+	    "default-value": "adaptive",
+	    "type": "String"
+	}, 
+	{
+	    "id": "cytomine_tile_size",
+	    "value-key": "[@ID]",
+	    "command-line-flag": "--@id",
+	    "name": "Cytomine Processing Tile size",
+	    "description": "Cytomine tile size where threshold is applied",
+	    "set-by-server": true,
+	    "optional": false,
+	    "default-value": "512",
+	    "type": "Number"
+	},
+	{
+	    "id": "cytomine_min_area",
+	    "value-key": "[@ID]",
+	    "command-line-flag": "--@id",
+	    "name": "Cytomine Minimum Object Area",
+	    "description": "Cytomine minimum area of objects in pixels",
+	    "set-by-server": true,
+	    "optional": false,
+	    "default-value": "1000",
+	    "type": "Number"
+	},
+	{
+	    "id": "cytomine_max_area",
+	    "value-key": "[@ID]",
+	    "command-line-flag": "--@id",
+	    "name": "Cytomine Maximum object area",
+	    "description": "Cytomine maximum area of objects in pixels",
+	    "set-by-server": true,
+	    "optional": false,
+	    "default-value": "10000000",
+	    "type": "Number"
+	},
+	{
+	    "id": "cytomine_union_min_length",
+	    "value-key": "[@ID]",
+	    "command-line-flag": "--@id",
+	    "name": "Cytomine union minimum length",
+	    "description": "Cytomine minimum length for union",
+	    "set-by-server": true,
+	    "optional": false,
+	    "default-value": "10",
+	    "type": "Number"
+	},
+	{
+	    "id": "cytomine_union_bufferoverlap",
+	    "value-key": "[@ID]",
+	    "command-line-flag": "--@id",
+	    "name": "Cytomine Union Buffer Overlap",
+	    "description": "Cytomine buffer overlap for union",
+	    "set-by-server": true,
+	    "optional": false,
+	    "default-value": "5",
+	    "type": "Number"
+	},
+	{
+	    "id": "cytomine_union_area",
+	    "value-key": "[@ID]",
+	    "command-line-flag": "--@id",
+	    "name": "Cytomine Union Area",
+	    "description": "Cytomine area for union",
+	    "set-by-server": true,
+	    "optional": false,
+	    "default-value": "5000",
+	    "type": "Number"
+	},
+	{
+	    "id": "cytomine_union_min_point_for_simplify",
+	    "value-key": "[@ID]",
+	    "command-line-flag": "--@id",
+	    "name": "Cytomine Union Minimum Point Simplification",
+	    "description": "Cytomine minimum number of points in polygon for simplification step",
+	    "set-by-server": true,
+	    "optional": false,
+	    "default-value": "1000",
+	    "type": "Number"
+	},
+	{
+	    "id": "cytomine_union_min_point",
+	    "value-key": "[@ID]",
+	    "command-line-flag": "--@id",
+	    "name": "Cytomine Minimum Point",
+	    "description": "Cytomine minimum number of points in polygon",
+	    "set-by-server": true,
+	    "optional": false,
+	    "default-value": "500",
+	    "type": "Number"
+	},
+	{
+	    "id": "cytomine_union_max_point",
+	    "value-key": "[@ID]",
+	    "command-line-flag": "--@id",
+	    "description": "Cytomine maximum number of points in polygon",
+	    "set-by-server": true,
+	    "optional": false,
+	    "default-value": "1000",
+	    "type": "Number"
+	},
+	{
+	    "id": "cytomine_union_nb_zones_width",
+	    "value-key": "[@ID]",
+	    "command-line-flag": "--@id",
+	    "name": "Cytomine Union Number of Zones Width",
+	    "description": "Cytomine number of zones width for union",
+	    "set-by-server": true,
+	    "optional": false,
+	    "default-value": "5",
+	    "type": "Number"
+	},
+	{
+	    "id": "cytomine_union_nb_zones_height",
+	    "value-key": "[@ID]",
+	    "command-line-flag": "--@id",
+	    "name": "Cytomine Union Number of Zones Height",
+	    "description": "Cytomine number of zones height for union",
+	    "set-by-server": true,
+	    "optional": false,
+	    "default-value": "5",
+	    "type": "Number"
+	},
+    
+    ],
+
+    "schema-version": "cytomine-0.1"
+}
