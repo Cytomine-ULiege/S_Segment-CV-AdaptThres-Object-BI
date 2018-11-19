@@ -1,11 +1,11 @@
 {
-    "name": "Segment-CV-AdaptThres-Object-BI",
+    "name": "Segment-CV-AdaptThres-Object-BI3",
     "description": "Detects objects in a big image using adaptive thresholding, tiling, and union",
     "container-image": {
 	"image": "cytomineuliege/s_segment-cv-adaptthres-object-bi",
 	"type": "singularity"
     },
-    "command-line": "[CYTOMINE_HOST] [CYTOMINE_PUBLIC_KEY] [CYTOMINE_PRIVATE_KEY] [CYTOMINE_ID_PROJECT] [CYTOMINE_ID_SOFTWARE] [CYTOMINE_ID_PREDICTED_TERM] [CYTOMINE_ZOOM_LEVEL] [CYTOMINE_FILTER] [CYTOMINE_TILE_SIZE] [CYTOMINE_MIN_AREA] [CYTOMINE_MAX_AREA] [CYTOMINE_UNION_MIN_LENGTH] [CYTOMINE_UNION_BUFFEROVERLAP] [CYTOMINE_UNION_AREA] [CYTOMINE_UNION_MIN_POINT_FOR_SIMPLIFY] [CYTOMINE_UNION_MIN_POINT] [CYTOMINE_UNION_MAX_POINT] [CYTOMINE_UNION_NB_ZONES_WIDTH] [CYTOMINE_UNION_NB_ZONES_HEIGHT]",
+    "command-line": "[CYTOMINE_HOST] [CYTOMINE_PUBLIC_KEY] [CYTOMINE_PRIVATE_KEY] [CYTOMINE_ID_PROJECT] [CYTOMINE_ID_IMAGE] [CYTOMINE_ID_SOFTWARE] [CYTOMINE_ID_PREDICTED_TERM] [CYTOMINE_ZOOM_LEVEL] [CYTOMINE_FILTER] [CYTOMINE_TILE_SIZE] [CYTOMINE_TILE_OVERLAP] [CYTOMINE_MIN_AREA] [CYTOMINE_MAX_AREA] [CYTOMINE_UNION_MIN_LENGTH] [CYTOMINE_UNION_BUFFEROVERLAP] [CYTOMINE_UNION_AREA] [CYTOMINE_UNION_MIN_POINT_FOR_SIMPLIFY] [CYTOMINE_UNION_MIN_POINT] [CYTOMINE_UNION_MAX_POINT] [CYTOMINE_UNION_NB_ZONES_WIDTH] [CYTOMINE_UNION_NB_ZONES_HEIGHT]",
     "inputs": [
 	{
 	    "id": "cytomine_host",
@@ -39,6 +39,15 @@
 	    "value-key": "[@ID]",
 	    "command-line-flag": "--@id",
 	    "name": "Cytomine project ID",
+	    "set-by-server": true,
+	    "optional": false,
+	    "type": "Number"
+	},
+	{
+	    "id": "cytomine_id_image",
+	    "value-key": "[@ID]",
+	    "command-line-flag": "--@id",
+	    "name": "Cytomine image ID",
 	    "set-by-server": true,
 	    "optional": false,
 	    "type": "Number"
@@ -95,6 +104,17 @@
 	    "set-by-server": true,
 	    "optional": false,
 	    "default-value": "512",
+	    "type": "Number"
+	},
+	{
+	    "id": "cytomine_tile_overlap",
+	    "value-key": "[@ID]",
+	    "command-line-flag": "--@id",
+	    "name": "Cytomine Processing Tile Overlap",
+	    "description": "Cytomine tile overlap where threshold is applied",
+	    "set-by-server": true,
+	    "optional": false,
+	    "default-value": "0",
 	    "type": "Number"
 	},
 	{
@@ -205,7 +225,7 @@
 	    "optional": false,
 	    "default-value": "5",
 	    "type": "Number"
-	},
+	}
     
     ],
 
