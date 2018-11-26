@@ -72,8 +72,8 @@
 	    "optional": false,
 	    "type": "Domain",
 	    "uri": "/api/project/$currentProject$/imageinstance.json",
-	    "uri-print-attribute": "name",
-	    "uri-sort-attribute": "name"
+	    "uri-print-attribute": "instanceFilename",
+	    "uri-sort-attribute": "instanceFilename"
 	},
 	{
 	    "id": "cytomine_zoom_level",
