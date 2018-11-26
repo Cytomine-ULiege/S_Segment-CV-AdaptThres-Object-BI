@@ -1,5 +1,5 @@
 {
-    "name": "Segment-CV-AdaptThres-Object-BI3",
+    "name": "Segment-CV-AdaptThres-Object-BI",
     "description": "Detects objects in a big image using adaptive thresholding, tiling, and union",
     "container-image": {
 	"image": "cytomineuliege/s_segment-cv-adaptthres-object-bi",
