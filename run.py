@@ -164,7 +164,7 @@ def main(argv):
 
         #Perform Union of geometries (because geometries are computed locally in each tile but objects (e.g. cell clusters) might overlap several tiles)
         host = cj.parameters.cytomine_host.replace("http://" , "")
-        unioncommand = "groovy -cp \"/lib/jars/*\" /app/union4.groovy http://%s %s %s %d %d %d %d %d %d %d %d %d %d" %(cj.parameters.cytomine_host,
+        unioncommand = "groovy -cp \"/lib/jars/*\" /app/union4.groovy http://%s %s %s %d %d %d %d %d %d %d %d %d %d" %(host,
                                                                                                                        cj._public_key,cj._private_key, 
                                                                                                                        cj.parameters.cytomine_id_image,
                                                                                                                        cj.job.userJob, 
