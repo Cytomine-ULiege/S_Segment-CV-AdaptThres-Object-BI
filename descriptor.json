@@ -44,15 +44,6 @@
 	    "type": "Number"
 	},
 	{
-	    "id": "cytomine_id_image",
-	    "value-key": "[@ID]",
-	    "command-line-flag": "--@id",
-	    "name": "Cytomine image ID",
-	    "set-by-server": true,
-	    "optional": false,
-	    "type": "Number"
-	},
-	{
 	    "id": "cytomine_id_software",
 	    "value-key": "[@ID]",
 	    "command-line-flag": "--@id",
@@ -74,12 +65,22 @@
 	    "uri-sort-attribute": "name"
 	},
 	{
+	    "id": "cytomine_id_image",
+	    "value-key": "[@ID]",
+	    "command-line-flag": "--@id",
+	    "name": "Image to process",
+	    "optional": false,
+	    "type": "Domain",
+	    "uri": "/api/project/$currentProject$/imageinstance.json",
+	    "uri-print-attribute": "name",
+	    "uri-sort-attribute": "name"
+	},
+	{
 	    "id": "cytomine_zoom_level",
 	    "value-key": "[@ID]",
 	    "command-line-flag": "--@id",
 	    "name": "Cytomine zoom level",
 	    "description": "Cytomine zoom level at which to perform thresholding",
-	    "set-by-server": true,
 	    "optional": false,
 	    "default-value": "0",
 	    "type": "Number"
@@ -90,7 +91,6 @@
 	    "command-line-flag": "--@id",
 	    "name": "Cytomine thresholding filter",
 	    "description": "Filter (adaptive,otsu,binary) to detect foreground objects",
-	    "set-by-server": true,
 	    "optional": false,
 	    "default-value": "adaptive",
 	    "type": "String"
@@ -101,7 +101,6 @@
 	    "command-line-flag": "--@id",
 	    "name": "Cytomine Processing Tile size",
 	    "description": "Cytomine tile size where threshold is applied",
-	    "set-by-server": true,
 	    "optional": false,
 	    "default-value": "512",
 	    "type": "Number"
@@ -112,7 +111,6 @@
 	    "command-line-flag": "--@id",
 	    "name": "Cytomine Processing Tile Overlap",
 	    "description": "Cytomine tile overlap where threshold is applied",
-	    "set-by-server": true,
 	    "optional": false,
 	    "default-value": "0",
 	    "type": "Number"
@@ -123,7 +121,6 @@
 	    "command-line-flag": "--@id",
 	    "name": "Cytomine Minimum Object Area",
 	    "description": "Cytomine minimum area of objects in pixels",
-	    "set-by-server": true,
 	    "optional": false,
 	    "default-value": "1000",
 	    "type": "Number"
@@ -134,7 +131,6 @@
 	    "command-line-flag": "--@id",
 	    "name": "Cytomine Maximum object area",
 	    "description": "Cytomine maximum area of objects in pixels",
-	    "set-by-server": true,
 	    "optional": false,
 	    "default-value": "10000000",
 	    "type": "Number"
@@ -145,7 +141,6 @@
 	    "command-line-flag": "--@id",
 	    "name": "Cytomine union minimum length",
 	    "description": "Cytomine minimum length for union",
-	    "set-by-server": true,
 	    "optional": false,
 	    "default-value": "10",
 	    "type": "Number"
@@ -156,7 +151,6 @@
 	    "command-line-flag": "--@id",
 	    "name": "Cytomine Union Buffer Overlap",
 	    "description": "Cytomine buffer overlap for union",
-	    "set-by-server": true,
 	    "optional": false,
 	    "default-value": "5",
 	    "type": "Number"
@@ -167,7 +161,6 @@
 	    "command-line-flag": "--@id",
 	    "name": "Cytomine Union Area",
 	    "description": "Cytomine area for union",
-	    "set-by-server": true,
 	    "optional": false,
 	    "default-value": "5000",
 	    "type": "Number"
@@ -178,7 +171,6 @@
 	    "command-line-flag": "--@id",
 	    "name": "Cytomine Union Minimum Point Simplification",
 	    "description": "Cytomine minimum number of points in polygon for simplification step",
-	    "set-by-server": true,
 	    "optional": false,
 	    "default-value": "1000",
 	    "type": "Number"
@@ -189,7 +181,6 @@
 	    "command-line-flag": "--@id",
 	    "name": "Cytomine Minimum Point",
 	    "description": "Cytomine minimum number of points in polygon",
-	    "set-by-server": true,
 	    "optional": false,
 	    "default-value": "500",
 	    "type": "Number"
@@ -199,7 +190,6 @@
 	    "value-key": "[@ID]",
 	    "command-line-flag": "--@id",
 	    "description": "Cytomine maximum number of points in polygon",
-	    "set-by-server": true,
 	    "optional": false,
 	    "default-value": "1000",
 	    "type": "Number"
@@ -210,7 +200,6 @@
 	    "command-line-flag": "--@id",
 	    "name": "Cytomine Union Number of Zones Width",
 	    "description": "Cytomine number of zones width for union",
-	    "set-by-server": true,
 	    "optional": false,
 	    "default-value": "5",
 	    "type": "Number"
@@ -221,7 +210,6 @@
 	    "command-line-flag": "--@id",
 	    "name": "Cytomine Union Number of Zones Height",
 	    "description": "Cytomine number of zones height for union",
-	    "set-by-server": true,
 	    "optional": false,
 	    "default-value": "5",
 	    "type": "Number"
