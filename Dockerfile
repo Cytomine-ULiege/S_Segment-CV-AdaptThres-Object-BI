@@ -1,4 +1,4 @@
-FROM cytomineuliege/software-groovy-base:v1.4.1
+FROM cytomine/software-groovy-2-4-base:v2.0.0
 
 #install python
 RUN apt-get update -y && apt-get install -y python3 python3-pip python3-setuptools zlib1g-dev libjpeg-dev
@@ -9,10 +9,12 @@ RUN pip3 install requests \
     future \
     shapely \
     numpy \
-    opencv-python-headless
-    
-RUN git clone https://github.com/cytomine-uliege/Cytomine-python-client.git && \
+    opencv-python-headless \
+    Pillow==6.2.2
+
+RUN git clone https://github.com/cytomine/Cytomine-python-client.git && \
     cd Cytomine-python-client && \
+    git checkout v2.2.0 && \
     python3 setup.py build && \
     python3 setup.py install
 
@@ -22,11 +24,10 @@ RUN mkdir -p /app
 ADD run.py /app/run.py
 ADD union4.groovy /app/union4.groovy
 
-RUN mkdir -p /lib && \
-    cd /lib && \
+RUN cd /lib && \
     mkdir -p jars && \
     cd jars && \
-    wget http://release.cytomine.be/java/cytomine-java-client.jar -O cytomine-java-client.jar
+    cp /lib/cytomine-java-client.jar cytomine-java-client.jar
 
 ADD jts-1.13.jar /lib/jars/jts-1.13.jar
     
