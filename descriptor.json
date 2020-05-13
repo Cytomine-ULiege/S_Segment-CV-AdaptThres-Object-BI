@@ -2,7 +2,7 @@
     "name": "Segment-CV-AdaptThres-Object-BI",
     "description": "Detects objects in a big image using adaptive thresholding, tiling, and union",
     "container-image": {
-	"image": "cytomine/s_segment-cv-adaptthres-object-bi",
+	"image": "cytomineuliege/s_segment-cv-adaptthres-object-bi",
 	"type": "singularity"
     },
     "command-line": "[CYTOMINE_HOST] [CYTOMINE_PUBLIC_KEY] [CYTOMINE_PRIVATE_KEY] [CYTOMINE_ID_PROJECT] [CYTOMINE_ID_IMAGE] [CYTOMINE_ID_SOFTWARE] [CYTOMINE_ID_PREDICTED_TERM] [CYTOMINE_ZOOM_LEVEL] [CYTOMINE_FILTER] [CYTOMINE_TILE_SIZE] [CYTOMINE_TILE_OVERLAP] [CYTOMINE_MIN_AREA] [CYTOMINE_MAX_AREA] [CYTOMINE_UNION_MIN_LENGTH] [CYTOMINE_UNION_BUFFEROVERLAP] [CYTOMINE_UNION_AREA] [CYTOMINE_UNION_MIN_POINT_FOR_SIMPLIFY] [CYTOMINE_UNION_MIN_POINT] [CYTOMINE_UNION_MAX_POINT] [CYTOMINE_UNION_NB_ZONES_WIDTH] [CYTOMINE_UNION_NB_ZONES_HEIGHT]",
