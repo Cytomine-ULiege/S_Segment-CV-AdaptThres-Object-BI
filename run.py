@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# * Copyright (c) 2009-2018. Authors: see NOTICE file.
+# * Copyright (c) 2009-2020. Authors: see NOTICE file.
 # *
 # * Licensed under the Apache License, Version 2.0 (the "License");
 # * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ from __future__ import unicode_literals
 
 __author__          = "Marée Raphaël <raphael.maree@ulg.ac.be>" 
 __contributors__    = ["Stévens Benjamin <b.stevens@ulg.ac.be>"]                
-__copyright__       = "Copyright 2010-2018 University of Liège, Belgium, http://www.cytomine.be/"
+__copyright__       = "Copyright 2010-2020 University of Liège, Belgium, http://www.cytomine.be/"
 
 
 from operator import attrgetter
@@ -62,7 +62,6 @@ class AdaptiveThresholdFilter(Filter):
         self.c = c
 
     def process(self, image):
-        print(image)
         image_gray = cv2.adaptiveThreshold(image, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY_INV,
                                            self.block_size, self.c)
         return image_gray
@@ -138,7 +137,6 @@ def main(argv):
             #Convert local coordinates (from the tile image) to global coordinates (the whole slide)
             components = whole_slide.convert_to_real_coordinates(components, reader.window_position, reader.zoom)
             geometries.extend(get_geometries(components, cj.parameters.cytomine_min_area, cj.parameters.cytomine_max_area))
-            print(geometries)
 
             #Upload annotations (geometries corresponding to connected components) to Cytomine core
             #Upload each geometry and predicted term
